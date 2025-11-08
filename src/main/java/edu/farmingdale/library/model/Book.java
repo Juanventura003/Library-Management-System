@@ -11,59 +11,45 @@ public class Book
     private String bookTitle;
     private String author;
     private Boolean inLibrary;
-    private Student possesion;
+    private String possessionStudentID;
+    public Book() {
+    }
 
-    public Book(String ISBN, String bookTitle, String author, Boolean inLibrary, Student possesion) {
+    public Book(String ISBN, String bookTitle, String author, Boolean inLibrary, String possessionStudentID) {
         this.bookTitle = bookTitle;
         this.author = author;
         this.inLibrary = inLibrary;
-        this.possesion = possesion;
+        this.possessionStudentID = possessionStudentID;
         this.ISBN = ISBN;
         this.ID = nextID++;
     }
 
-    public int getID() {
-        return ID;
-    }
+ // Getters
+    public int getID() { return ID; }
+    public String getISBN() { return ISBN; }
+    public String getBookTitle() { return bookTitle; }
+    public String getAuthor() { return author; }
+    public Boolean getInLibrary() { return inLibrary; }
+    public String getPossessionStudentID() { return possessionStudentID; }
 
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public String getBookTitle() {
-        return bookTitle;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public Boolean getInLibrary() {
-        return inLibrary;
-    }
-
-    public Student getPossesion() {
-        return possesion;
-    }
-
-    public void setPossesion(Student possesion) {
-        this.possesion = possesion;
-    }
-
-    public void setInLibrary(Boolean inLibrary) {
-        this.inLibrary = inLibrary;
-    }
+    // Setters
+    public void setID(int ID) { this.ID = ID; }
+    public void setISBN(String ISBN) { this.ISBN = ISBN; }
+    public void setBookTitle(String bookTitle) { this.bookTitle = bookTitle; }
+    public void setAuthor(String author) { this.author = author; }
+    public void setInLibrary(Boolean inLibrary) { this.inLibrary = inLibrary; }
+    public void setPossessionStudentID(String possessionStudentID) { this.possessionStudentID = possessionStudentID; }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return ID == book.ID && ISBN == book.ISBN && Objects.equals(bookTitle, book.bookTitle) && Objects.equals(author, book.author) && Objects.equals(inLibrary, book.inLibrary) && Objects.equals(possesion, book.possesion);
+        return ID == book.ID && ISBN == book.ISBN && Objects.equals(bookTitle, book.bookTitle) && Objects.equals(author, book.author) && Objects.equals(inLibrary, book.inLibrary) && Objects.equals(possessionStudentID, book.possessionStudentID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, ISBN, bookTitle, author, inLibrary, possesion);
+        return Objects.hash(ID, ISBN, bookTitle, author, inLibrary, possessionStudentID);
     }
 
     @Override
@@ -79,7 +65,7 @@ public class Book
                 ", bookTitle='" + bookTitle + '\'' +
                 ", author='" + author + '\'' +
                 ", inLibrary=" + inLibrary +
-                ", possesion=" + possesion +
+                ", possessionStudentID=" + possessionStudentID +
                 '}';
     }
 }
